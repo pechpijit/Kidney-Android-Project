@@ -4,11 +4,29 @@
     <color name="colorPrimaryDark">#1eb9ad</color>
     <color name="colorAccent">#03a9f4</color>
 
-    <color name="color_txt_bmi_1">#e74c3c</color>
-    <color name="color_txt_bmi_2">#e67e22</color>
-    <color name="color_txt_bmi_3">#2ecc71</color>
-    <color name="color_txt_bmi_4">#f1c40f</color>
-    <color name="color_txt_bmi_5">#f39c12</color>
+    <color name="color_txt_bmi_1">#f39c12</color>
+    <color name="color_txt_bmi_2">#2ecc71</color>
+    <color name="color_txt_bmi_3">#f1c40f</color>
+    <color name="color_txt_bmi_4">#e67e22</color>
+    <color name="color_txt_bmi_5">#e74c3c</color>
+
+    <color name="color_txt_pres_1">#e67e22</color>
+    <color name="color_txt_pres_2">#2ecc71</color>
+    <color name="color_txt_pres_3">#e67e22</color>
+    <color name="color_txt_pres_4">#e74c3c</color>
+
+    <color name="color_txt_sugar_1">#f1c40f</color>
+    <color name="color_txt_sugar_2">#2ecc71</color>
+    <color name="color_txt_sugar_3">#f39c12</color>
+    <color name="color_txt_sugar_4">#e67e22</color>
+    <color name="color_txt_sugar_5">#e74c3c</color>
+
+    <color name="color_txt_tai_1">#e74c3c</color>
+    <color name="color_txt_tai_2">#e67e22</color>
+    <color name="color_txt_tai_3">#f39c12</color>
+    <color name="color_txt_tai_4">#f1c40f</color>
+    <color name="color_txt_tai_5">#2ecc71</color>
+    <color name="color_txt_tai_6">#2ecc71</color>
 
     <color name="color_percen_1">#90e601</color>
     <color name="color_percen_2">#f09921</color>
@@ -58,7 +76,8 @@
     <color name="colorbg2">#FF6900</color>
     <color name="black_overlay">#66000000</color>
     <color name="white">#ffffff</color>
-    <color name="white50">#50ffffff</color>
+    <color name="white50">#80ffffff</color>
+    <color name="back50">#10000000</color>
     <color name="Black">#000000</color>
     <color name="bg">#5ed1ba</color>
     <color name="bg2">#00bcd4</color>

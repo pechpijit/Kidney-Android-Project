@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
@@ -13,13 +11,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.khiancode.kidney.helper.PrefUtils;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import az.plainpie.PieView;
 import az.plainpie.animation.PieAngleAnimation;
@@ -35,8 +34,6 @@ public class SodiumActivity extends BaseActivity {
     PieView pieView;
     @BindView(R.id.viewValue)
     FrameLayout viewValue;
-    @BindView(R.id.txtSodium)
-    TextView txtSodium;
     @BindView(R.id.txtSodiumValue)
     TextView txtSodiumValue;
     @BindView(R.id.btnCat1)
@@ -45,20 +42,19 @@ public class SodiumActivity extends BaseActivity {
     Button btnCat2;
     @BindView(R.id.btnCat3)
     Button btnCat3;
-    @BindView(R.id.btnCat4)
-    Button btnCat4;
     @BindView(R.id.cardBtn)
     CardView cardBtn;
     @BindView(R.id.viewBtn1)
     LinearLayout viewBtn1;
-    @BindView(R.id.viewBtn2)
-    LinearLayout viewBtn2;
     @BindView(R.id.btnRef)
     ImageView btnRef;
+    @BindView(R.id.txtStatus)
+    TextView txtStatus;
+    @BindView(R.id.cardStatus)
+    CardView cardStatus;
 
-    private BottomSheetDialog bottomSheetDialog;
-    private BottomSheetBehavior bottomSheetBehavior;
     private PieAngleAnimation animation;
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -71,17 +67,26 @@ public class SodiumActivity extends BaseActivity {
         setContentView(R.layout.activity_sodium);
         ButterKnife.bind(this);
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        final String currentDateandTime = sdf.format(new Date());
+
         PrefUtils utils = new PrefUtils(this);
-        utils.setSodiumValue(0.0f);
+        if (utils.getDay().isEmpty()) {
+            utils.setDay(currentDateandTime);
+            utils.setSodiumValue(0.0f);
+        } else if (!utils.getDay().equals(currentDateandTime)) {
+            utils.setSodiumValue(0.0f);
+            utils.setDay(currentDateandTime);
+        }
 
         viewBtn1.setVisibility(View.INVISIBLE);
-        viewBtn2.setVisibility(View.INVISIBLE);
         txtTitle.setVisibility(View.INVISIBLE);
         viewValue.setVisibility(View.INVISIBLE);
-        txtSodium.setVisibility(View.INVISIBLE);
         txtSodiumValue.setVisibility(View.INVISIBLE);
         cardBtn.setVisibility(View.INVISIBLE);
         btnRef.setVisibility(View.INVISIBLE);
+        cardStatus.setVisibility(View.INVISIBLE);
+        txtStatus.setVisibility(View.INVISIBLE);
 
         new Handler().postDelayed(
                 new Runnable() {
@@ -96,6 +101,8 @@ public class SodiumActivity extends BaseActivity {
         animation = new PieAngleAnimation(pieView);
         animation.setDuration(1000);
         pieView.startAnimation(animation);
+
+        updateView();
     }
 
     private void aimationOne() {
@@ -114,15 +121,15 @@ public class SodiumActivity extends BaseActivity {
                 .duration(700)
                 .playOn(cardBtn);
 
-        txtSodium.setVisibility(View.VISIBLE);
-        YoYo.with(Techniques.ZoomInRight)
-                .duration(700)
-                .playOn(txtSodium);
-
         txtSodiumValue.setVisibility(View.VISIBLE);
         YoYo.with(Techniques.ZoomInLeft)
                 .duration(700)
                 .playOn(txtSodiumValue);
+
+        cardStatus.setVisibility(View.VISIBLE);
+        YoYo.with(Techniques.ZoomIn)
+                .duration(700)
+                .playOn(cardStatus);
 
 
         new Handler().postDelayed(
@@ -140,31 +147,31 @@ public class SodiumActivity extends BaseActivity {
                 .duration(700)
                 .playOn(viewBtn1);
 
-        viewBtn2.setVisibility(View.VISIBLE);
-        YoYo.with(Techniques.FadeInUp)
-                .duration(700)
-                .playOn(viewBtn2);
-
         btnRef.setVisibility(View.VISIBLE);
         YoYo.with(Techniques.ZoomInLeft)
                 .duration(700)
                 .playOn(btnRef);
+
+        txtStatus.setVisibility(View.VISIBLE);
+        YoYo.with(Techniques.ZoomIn)
+                .duration(700)
+                .playOn(txtStatus);
     }
 
-    @OnClick({R.id.btnCat1, R.id.btnCat2, R.id.btnCat3, R.id.btnCat4,R.id.btnRef})
+    @OnClick({R.id.btnCat1, R.id.btnCat2, R.id.btnCat3, R.id.btnRef})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnCat1:
-                intentListFood(1);
+                startActivityForResult(new Intent(this, FlavoringDiskActivity.class), 1150);
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
                 break;
             case R.id.btnCat2:
-                intentListFood(2);
+                startActivityForResult(new Intent(this, FoodDiskActivity.class), 1150);
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
                 break;
             case R.id.btnCat3:
-                ToastShow(this, "ยังไม่เปิดใช้งาน");
-                break;
-            case R.id.btnCat4:
-                ToastShow(this, "ยังไม่เปิดใช้งาน");
+                startActivityForResult(new Intent(this, DrinkDiskActivity.class), 1150);
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
                 break;
             case R.id.btnRef:
                 DecimalFormat df = new DecimalFormat("0");
@@ -198,15 +205,21 @@ public class SodiumActivity extends BaseActivity {
             txtSodiumValue.setText(df.format(utils.getSodiumValue()) + " มิลลิกรัม");
 
             float per = (utils.getSodiumValue() / 2400) * 100;
-            pieView.setPercentage((int)per);
+            pieView.setPercentage((int) per);
         }
 
-        if (utils.getSodiumValue() >= 0 && utils.getSodiumValue() <= 2000) {
+        if (utils.getSodiumValue() >= 0 && utils.getSodiumValue() <= 1800) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_1));
-        } else if (utils.getSodiumValue() > 2000 && utils.getSodiumValue() <= 2400) {
+            cardStatus.setCardBackgroundColor(getResources().getColor(R.color.color_percen_1));
+            txtStatus.setText("เหมาะสม");
+        } else if (utils.getSodiumValue() > 1801 && utils.getSodiumValue() <= 2000) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_2));
-        } else if (utils.getSodiumValue() > 2400) {
+            cardStatus.setCardBackgroundColor(getResources().getColor(R.color.color_percen_2));
+            txtStatus.setText("เสียง! เกลือจะเกินแล้ว");
+        } else if (utils.getSodiumValue() > 2000) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_3));
+            cardStatus.setCardBackgroundColor(getResources().getColor(R.color.color_percen_3));
+            txtStatus.setText("เกินแล้ว!");
         }
 
         animation = new PieAngleAnimation(pieView);

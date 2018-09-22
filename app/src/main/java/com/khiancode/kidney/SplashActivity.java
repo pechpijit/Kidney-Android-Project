@@ -3,6 +3,7 @@ package com.khiancode.kidney;
 import android.content.Intent;
 
 import com.daimajia.androidanimations.library.Techniques;
+import com.khiancode.kidney.helper.PrefUtils;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
@@ -21,7 +22,7 @@ public class SplashActivity extends AwesomeSplash {
         configSplash.setAnimLogoSplashDuration(1000);
         configSplash.setAnimLogoSplashTechnique(Techniques.Bounce);
 
-        configSplash.setTitleSplash("ตะ เตือน ไต");
+        configSplash.setTitleSplash("HUGTAI ฮักไต");
         configSplash.setTitleTextColor(R.color.white);
         configSplash.setTitleTextSize(45f);
         configSplash.setAnimTitleDuration(1300);
@@ -35,9 +36,15 @@ public class SplashActivity extends AwesomeSplash {
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        startActivity(new Intent(SplashActivity.this,MainActivity.class));
-                        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
-                        finish();
+                        if (new PrefUtils(SplashActivity.this).getLoginStatus()) {
+                            startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                            overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                            finish();
+                        }else {
+                            startActivity(new Intent(SplashActivity.this,HomeActivity.class));
+                            overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                            finish();
+                        }
                     }
                 }, 700);
 

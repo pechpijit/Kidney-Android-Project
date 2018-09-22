@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/white"
+    tools:context=".HomeActivity"
+    tools:showIn="@layout/activity_home">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtAppname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="HUGTAI"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="35sp"/>
+
+        <TextView
+            android:id="@+id/subTxtAppname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ฮักไต"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="35sp"/>
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/rinones"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                app:cardElevation="5dp"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="5dp">
+
+                    <Button
+                        android:id="@+id/btnLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="13dp"
+                        android:textSize="19sp"
+                        android:text="เข้าสู่ระบบ"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:theme="@style/MyButton"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:layout_height="2dp"
+                            android:background="#c7c5c5"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:text="หรือ"/>
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:layout_height="2dp"
+                            android:background="#c7c5c5"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnRegister"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="13dp"
+                        android:textSize="19sp"
+                        android:text="สมัครสมาชิก"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:theme="@style/MyButton"/>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <com.jetradarmobile.snowfall.SnowfallView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:snowflakesNum="100"
+        app:snowflakeAlphaMin="150"
+        app:snowflakeAlphaMax="255"
+        app:snowflakeAngleMax="5"
+        app:snowflakeSizeMin="8dp"
+        app:snowflakeSizeMax="32dp"
+        app:snowflakeSpeedMin="2"
+        app:snowflakeSpeedMax="6"
+        app:snowflakesFadingEnabled="true"
+        app:snowflakesAlreadyFalling="false"
+        app:snowflakeImage="@drawable/snowflake"/>
+</RelativeLayout>

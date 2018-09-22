@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.khiancode.kidney.helper.PrefUtils;
 import com.khiancode.kidney.model.FoodModel;
 
 import java.util.ArrayList;
@@ -35,8 +36,6 @@ public class MainActivity extends BaseActivity {
     Button btnSo;
     @BindView(R.id.cardBtn)
     CardView cardBtn;
-    @BindView(R.id.txtProcess)
-    TextView txtProcess;
     @BindView(R.id.btnMenu)
     ImageView btnMenu;
 
@@ -54,7 +53,9 @@ public class MainActivity extends BaseActivity {
         btnBMI.setVisibility(View.INVISIBLE);
         btnSo.setVisibility(View.INVISIBLE);
         cardBtn.setVisibility(View.INVISIBLE);
-        txtProcess.setVisibility(View.INVISIBLE);
+
+//        PrefUtils utils = new PrefUtils(this);
+//        ToastShow(this,utils.getPhone());
 
         new Handler().postDelayed(
                 new Runnable() {
@@ -63,9 +64,6 @@ public class MainActivity extends BaseActivity {
                     }
                 }, 400);
 
-    }
-
-    private void addRealm() {
     }
 
     private void aimationOne() {
@@ -94,10 +92,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void animationTwo() {
-        txtProcess.setVisibility(View.VISIBLE);
-        YoYo.with(Techniques.ZoomIn)
-                .duration(700)
-                .playOn(txtProcess);
 
         btnLearning.setVisibility(View.VISIBLE);
         YoYo.with(Techniques.FadeInUp)
@@ -119,10 +113,11 @@ public class MainActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnLearning:
-                ToastShow(this, "ยังไม่เปิดใช้งาน");
+                startActivity(new Intent(this,LearningActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 break;
             case R.id.btnBMI:
-                startActivity(new Intent(this,BMIActivity.class));
+                startActivity(new Intent(this,ShapeCalActivity.class));
                 overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_right);
                 break;
             case R.id.btnSo:

@@ -23,8 +23,8 @@
                 android:id="@+id/txtTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="คำนวนปริมาณโซเดียม"
+                android:layout_marginTop="5dp"
+                android:text="ปริมาณเกลือที่ได้รับวันนี้"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -32,22 +32,21 @@
             <FrameLayout
                 android:id="@+id/viewValue"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
+                android:layout_height="wrap_content">
 
                 <az.plainpie.PieView
                     android:id="@+id/pieView"
-                    android:layout_width="250dp"
-                    android:layout_height="250dp"
+                    android:layout_width="230dp"
+                    android:layout_height="230dp"
                     android:layout_gravity="center"
-                    plainpie:inner_pie_padding="70"
+                    plainpie:inner_pie_padding="90"
                     plainpie:inner_text_visibility="false"
                     plainpie:percentage_size="30" />
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:layout_marginTop="35dp"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="45dp"
                     android:src="@drawable/rinones_logo" />
 
                 <ImageView
@@ -62,16 +61,6 @@
             </FrameLayout>
 
             <TextView
-                android:id="@+id/txtSodium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="ปริมาณโซเดียม"
-                android:textAlignment="center"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <TextView
                 android:id="@+id/txtSodiumValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,6 +68,29 @@
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textStyle="bold" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                app:cardBackgroundColor="@color/color_percen_1"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+                <TextView
+                    android:id="@+id/txtStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="เหมาะสม"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
 
@@ -106,7 +118,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="เลือกหมวดหมู่อาหาร"
+                        android:text="เลือกหมวดหมู่คำนวนเกลือ"
                         android:textAlignment="center"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -117,60 +129,57 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/btnCat1"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:padding="13dp"
-                            android:text="เครื่องปรุง"
-                            android:textColor="@color/white"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:theme="@style/MyButton" />
+                            android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/btnCat2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:padding="13dp"
-                            android:text="เนื้อสัตว์"
-                            android:textColor="@color/white"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:theme="@style/MyButton" />
-                    </LinearLayout>
+                            <Button
+                                android:id="@+id/btnCat1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="13dp"
+                                android:paddingBottom="13dp"
+                                android:textSize="20sp"
+                                android:text="อาหารปรุงเอง"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:theme="@style/MyButton"/>
 
-                    <LinearLayout
-                        android:id="@+id/viewBtn2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#c7c5c5"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"/>
+
+                            <Button
+                                android:id="@+id/btnCat2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="13dp"
+                                android:textSize="20sp"
+                                android:text="อาหารจานเดียว"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:theme="@style/MyButton"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/btnCat3"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:padding="13dp"
-                            android:text="อาหารจานเดียว"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:paddingTop="13dp"
+                            android:paddingBottom="13dp"
+                            android:textSize="20sp"
+                            android:text="เครื่องดื่มที่มีเกลือ"
                             android:textColor="@color/white"
-                            android:textSize="22sp"
                             android:textStyle="bold"
-                            android:theme="@style/MyButton" />
+                            android:theme="@style/MyButton"/>
 
-                        <Button
-                            android:id="@+id/btnCat4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:padding="13dp"
-                            android:text="เครื่องดื่ม"
-                            android:textColor="@color/white"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:theme="@style/MyButton" />
                     </LinearLayout>
 
                 </LinearLayout>

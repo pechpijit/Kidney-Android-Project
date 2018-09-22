@@ -7,8 +7,15 @@ public class FoodModel{
     private long sodium;
     private String picture;
 
+//    public FoodModel(FoodModel foodModel) {
+//        this.Id = foodModel.getId();
+//        this.name = foodModel.getName();
+//        this.sodium = foodModel.getSodium();
+//        this.picture = foodModel.getPicture();
+//    }
+
     public FoodModel(String id, String name, long sodium, String picture) {
-        Id = id;
+        this.Id = id;
         this.name = name;
         this.sodium = sodium;
         this.picture = picture;

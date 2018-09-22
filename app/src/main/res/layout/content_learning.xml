@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".LearningActivity"
+    tools:showIn="@layout/activity_learning">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="รู้ไว้ก่อนไตเสื่อม"
+                    android:textAlignment="center"
+                    android:textSize="35sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardBtn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp">
+
+                    <Button
+                        android:id="@+id/btnMenu1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="13dp"
+                        android:textSize="22sp"
+                        android:text="คุณรู้จักไตมากแค่ไหน?"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:theme="@style/MyButton"/>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardBtn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp">
+
+                    <Button
+                        android:id="@+id/btnMenu2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="13dp"
+                        android:textSize="19sp"
+                        android:text="ประสบการณ์ตรงจากผู้ป่วยโรคไต"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:theme="@style/MyButton"/>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardBtn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp">
+
+                    <Button
+                        android:id="@+id/btnMenu3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="13dp"
+                        android:textSize="22sp"
+                        android:text="น้ำตาลในผลไม้"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:theme="@style/MyButton"/>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardBtn4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp">
+
+                    <Button
+                        android:id="@+id/btnMenu4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="13dp"
+                        android:textSize="22sp"
+                        android:text="เรื่องของช้อน"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:theme="@style/MyButton"/>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardBtn5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp">
+
+                    <Button
+                        android:id="@+id/btnMenu5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="13dp"
+                        android:textSize="22sp"
+                        android:text="ฉลากรู้ไว้ไม่เสียหาย"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:theme="@style/MyButton"/>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardBtn6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="10dp">
+
+                    <Button
+                        android:id="@+id/btnMenu6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="13dp"
+                        android:textSize="22sp"
+                        android:text="รหัสไม่ลับ 6:6:1"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:theme="@style/MyButton"/>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
+
+    <com.jetradarmobile.snowfall.SnowfallView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:snowflakeAlphaMax="255"
+        app:snowflakeAlphaMin="150"
+        app:snowflakeAngleMax="5"
+        app:snowflakeImage="@drawable/snowflake"
+        app:snowflakeSizeMax="32dp"
+        app:snowflakeSizeMin="8dp"
+        app:snowflakeSpeedMax="6"
+        app:snowflakeSpeedMin="2"
+        app:snowflakesAlreadyFalling="false"
+        app:snowflakesFadingEnabled="true"
+        app:snowflakesNum="100" />
+</RelativeLayout>

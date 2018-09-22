@@ -1,34 +1,41 @@
 package com.khiancode.kidney;
 
-import android.content.DialogInterface;
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.khiancode.kidney.helper.PrefUtils;
+import com.khiancode.kidney.model.BmiModel;
+import com.khiancode.kidney.okhttp.ApiClient;
+import com.khiancode.kidney.okhttp.CallServiceListener;
 import com.khiancode.kidney.viewspinner.NiceSpinner;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.realm.Realm;
+import okhttp3.FormBody;
+import okhttp3.RequestBody;
 
 public class BMIActivity extends BaseActivity {
 
@@ -58,6 +65,8 @@ public class BMIActivity extends BaseActivity {
     private int heightValue = 140;
     private int weightValue = 35;
 
+    private Realm realm;
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -69,6 +78,7 @@ public class BMIActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmi);
         ButterKnife.bind(this);
+        realm = Realm.getDefaultInstance();
 
         txtTitle.setVisibility(View.INVISIBLE);
         imgLogo.setVisibility(View.INVISIBLE);
@@ -170,27 +180,31 @@ public class BMIActivity extends BaseActivity {
                 .playOn(inputWeight);
     }
 
-    private void setBottomSheet(float value, String txt_BMI,String txt_detail_BMI,int color) {
+    private void setBottomSheet(final float value, final String txt_BMI, String txt_detail_BMI, final int color, final String reCom) {
         View bottomSheetView = getLayoutInflater().inflate(R.layout.bottom_sheets_bmi, null);
         bottomSheetDialog = new BottomSheetDialog(this);
         bottomSheetDialog.setContentView(bottomSheetView);
         bottomSheetBehavior = BottomSheetBehavior.from((View) bottomSheetView.getParent());
 
-        bottomSheetBehavior.setPeekHeight(260);
+        bottomSheetBehavior.setPeekHeight(1500);
 
         ImageView imgClose = bottomSheetView.findViewById(R.id.imgClose);
-        final Button btnOther = bottomSheetView.findViewById(R.id.btnOther);
         TextView txtTitle = bottomSheetView.findViewById(R.id.txtTitle);
         TextView txtValue = bottomSheetView.findViewById(R.id.txtValue);
-        final FrameLayout line = bottomSheetView.findViewById(R.id.line);
+        Button btnOther = bottomSheetView.findViewById(R.id.btnOther);
+        Button btnChart = bottomSheetView.findViewById(R.id.btnChart);
         final TextView txtDetail = bottomSheetView.findViewById(R.id.txtDetail);
 
-        DecimalFormat df = new DecimalFormat("0.##");
+        final DecimalFormat df = new DecimalFormat("0.##");
 
         txtTitle.setText(txt_BMI);
         txtTitle.setTextColor(getResources().getColor(color));
         txtValue.setText(df.format(value));
         txtDetail.setText(txt_detail_BMI);
+
+        if (txt_BMI.equals(getString(R.string.txt_BMI_2))) {
+            btnOther.setVisibility(View.INVISIBLE);
+        }
 
         imgClose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,62 +216,45 @@ public class BMIActivity extends BaseActivity {
         btnOther.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-                btnOther.setVisibility(View.INVISIBLE);
+                Intent intent = new Intent(BMIActivity.this, DetailBMIActivity.class);
+                intent.putExtra("status", txt_BMI);
+                intent.putExtra("value", df.format(value));
+                intent.putExtra("detail", reCom);
+                intent.putExtra("color", color);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                bottomSheetDialog.hide();
             }
         });
 
-        bottomSheetDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+        btnChart.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onShow(DialogInterface dialog) {
-                // do something
+            public void onClick(View view) {
+                startActivity(new Intent(BMIActivity.this,ChartBMIActivity.class));
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                bottomSheetDialog.hide();
             }
         });
 
-        bottomSheetDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                // do something
-            }
-        });
-
+//        bottomSheetDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+//            @Override
+//            public void onShow(DialogInterface dialog) {
+//                // do something
+//            }
+//        });
+//
+//        bottomSheetDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+//            @Override
+//            public void onDismiss(DialogInterface dialog) {
+//                // do something
+//            }
+//        });
+//
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if (newState == 3) {
-
-                    YoYo.with(Techniques.FadeOutUp)
-                            .duration(200)
-                            .playOn(btnOther);
-                    btnOther.setVisibility(View.INVISIBLE);
-
-                    txtDetail.setVisibility(View.VISIBLE);
-                    YoYo.with(Techniques.ZoomIn)
-                            .duration(200)
-                            .playOn(txtDetail);
-
-                    line.setVisibility(View.VISIBLE);
-                    YoYo.with(Techniques.ZoomIn)
-                            .duration(200)
-                            .playOn(line);
-
-
-                } else if (newState == 4) {
-
-                    btnOther.setVisibility(View.VISIBLE);
-                    YoYo.with(Techniques.FadeInDown)
-                            .duration(200)
-                            .playOn(btnOther);
-
-                    YoYo.with(Techniques.ZoomOut)
-                            .duration(200)
-                            .playOn(txtDetail);
-                    txtDetail.setVisibility(View.INVISIBLE);
-
-                    YoYo.with(Techniques.ZoomOut)
-                            .duration(200)
-                            .playOn(line);
-                    line.setVisibility(View.INVISIBLE);
+                if (newState == 1) {
+                    bottomSheetDialog.hide();
                 }
             }
 
@@ -277,20 +274,86 @@ public class BMIActivity extends BaseActivity {
         float value = w / (h * h);
 
         if (value < 18.50) {
-            setBottomSheet(value, getString(R.string.txt_BMI_1),getString(R.string.txt_detail_BMI_1),R.color.color_txt_bmi_1);
+            setBottomSheet(value, getString(R.string.txt_BMI_1),getString(R.string.txt_detail_BMI_1),R.color.color_txt_bmi_1,getString(R.string.txt_recommend_BMI_1));
         } else if (value >= 18.50 && value <= 22.99) {
-            setBottomSheet(value, getString(R.string.txt_BMI_2),getString(R.string.txt_detail_BMI_2),R.color.color_txt_bmi_2);
+            setBottomSheet(value, getString(R.string.txt_BMI_2),getString(R.string.txt_detail_BMI_2),R.color.color_txt_bmi_2,getString(R.string.txt_recommend_BMI_2));
         } else if (value >= 23.00 && value <= 24.99) {
-            setBottomSheet(value, getString(R.string.txt_BMI_3),getString(R.string.txt_detail_BMI_3),R.color.color_txt_bmi_3);
+            setBottomSheet(value, getString(R.string.txt_BMI_3),getString(R.string.txt_detail_BMI_3),R.color.color_txt_bmi_3,getString(R.string.txt_recommend_BMI_3));
         } else if (value >= 25.00 && value <= 29.99) {
-            setBottomSheet(value, getString(R.string.txt_BMI_4),getString(R.string.txt_detail_BMI_4),R.color.color_txt_bmi_4);
+            setBottomSheet(value, getString(R.string.txt_BMI_4),getString(R.string.txt_detail_BMI_4),R.color.color_txt_bmi_4,getString(R.string.txt_recommend_BMI_4));
         } else if (value >= 30) {
-            setBottomSheet(value, getString(R.string.txt_BMI_5),getString(R.string.txt_detail_BMI_5),R.color.color_txt_bmi_5);
+            setBottomSheet(value, getString(R.string.txt_BMI_5),getString(R.string.txt_detail_BMI_5),R.color.color_txt_bmi_5,getString(R.string.txt_recommend_BMI_5));
         }
+
+        insertRealm(value,h,w);
+
+        sendHistory(String.valueOf(value),String.valueOf(heightValue),String.valueOf(weightValue));
+    }
+
+    private void insertRealm(final float value, final float h, final float w) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+        final String currentDateandTime = sdf.format(new Date());
+
+        realm.beginTransaction();
+        realm.executeTransactionAsync(
+                new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        String id = UUID.randomUUID().toString();
+                        BmiModel model = realm.createObject(BmiModel.class, id);
+                        model.setDt(currentDateandTime);
+                        model.setHeight(h);
+                        model.setWeight(w);
+                        model.setValue(value);
+                        realm.insertOrUpdate(model);
+                    }
+                });
+        realm.commitTransaction();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        realm.close();
     }
 
     @OnClick(R.id.btnCal)
     public void onViewClicked() {
         CalBMI();
+    }
+
+    public void sendHistory(String value,String height,String weight) {
+        PrefUtils utils = new PrefUtils(this);
+
+        RequestBody requestBody = new FormBody.Builder()
+                .add("height", height)
+                .add("weight", weight)
+                .add("value", value)
+                .add("phone", utils.getPhone())
+                .build();
+
+        ApiClient.POST post = new ApiClient.POST(this);
+        post.setURL(BASE_URL+"member/addbmi");
+        post.setRequestBody(requestBody);
+        post.execute();
+        post.setListenerCallService(new CallServiceListener() {
+            @Override
+            public void ResultData(String data) {
+                if (data.equals("success")) {
+//                    ToastShow(BMIActivity.this,"บันทึกข้อมูล");
+                }
+            }
+
+            @Override
+            public void ResultError(String data) {
+
+            }
+
+            @Override
+            public void ResultNull(String data) {
+
+            }
+        });
+
     }
 }

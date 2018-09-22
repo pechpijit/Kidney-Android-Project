@@ -3,6 +3,7 @@ package com.khiancode.kidney.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -60,16 +61,19 @@ public class AdapterFoodList extends RecyclerView.Adapter<AdapterFoodList.Versio
     class VersionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView txtName,txtSodium;
         ImageView imgFood;
+        CardView cardView;
         public VersionViewHolder(View itemView) {
             super(itemView);
             txtName = itemView.findViewById(R.id.txtName);
             txtSodium = itemView.findViewById(R.id.txtSodium);
             imgFood = itemView.findViewById(R.id.imgFood);
+            cardView = itemView.findViewById(R.id.cardView);
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
+
             clickListener.onItemClick(v, getPosition());
         }
     }

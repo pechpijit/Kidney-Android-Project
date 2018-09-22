@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="ดัชนีมวลกาย (BMI)"
+            android:text="คำนวนรูปร่าง"
             android:textAlignment="center"
             android:textSize="40sp"
             android:textStyle="bold" />
