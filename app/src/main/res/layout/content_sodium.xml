@@ -39,15 +39,16 @@
                     android:layout_width="230dp"
                     android:layout_height="230dp"
                     android:layout_gravity="center"
-                    plainpie:inner_pie_padding="90"
+                    plainpie:inner_pie_padding="170"
                     plainpie:inner_text_visibility="false"
                     plainpie:percentage_size="30" />
 
                 <ImageView
+                    android:id="@+id/imgTai"
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
                     android:layout_marginTop="45dp"
-                    android:src="@drawable/rinones_logo" />
+                    android:src="@drawable/smile_icon" />
 
                 <ImageView
                     android:id="@+id/btnRef"

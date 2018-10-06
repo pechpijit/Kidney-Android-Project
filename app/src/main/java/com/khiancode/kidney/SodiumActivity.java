@@ -48,6 +48,8 @@ public class SodiumActivity extends BaseActivity {
     LinearLayout viewBtn1;
     @BindView(R.id.btnRef)
     ImageView btnRef;
+    @BindView(R.id.imgTai)
+    ImageView imgTai;
     @BindView(R.id.txtStatus)
     TextView txtStatus;
     @BindView(R.id.cardStatus)
@@ -147,10 +149,10 @@ public class SodiumActivity extends BaseActivity {
                 .duration(700)
                 .playOn(viewBtn1);
 
-        btnRef.setVisibility(View.VISIBLE);
-        YoYo.with(Techniques.ZoomInLeft)
-                .duration(700)
-                .playOn(btnRef);
+//        btnRef.setVisibility(View.VISIBLE);
+//        YoYo.with(Techniques.ZoomInLeft)
+//                .duration(700)
+//                .playOn(btnRef);
 
         txtStatus.setVisibility(View.VISIBLE);
         YoYo.with(Techniques.ZoomIn)
@@ -204,21 +206,24 @@ public class SodiumActivity extends BaseActivity {
         if (utils.getSodiumValue() != 0) {
             txtSodiumValue.setText(df.format(utils.getSodiumValue()) + " มิลลิกรัม");
 
-            float per = (utils.getSodiumValue() / 2400) * 100;
+            float per = (utils.getSodiumValue() / 2000) * 100;
             pieView.setPercentage((int) per);
         }
 
         if (utils.getSodiumValue() >= 0 && utils.getSodiumValue() <= 1800) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_1));
             cardStatus.setCardBackgroundColor(getResources().getColor(R.color.color_percen_1));
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.smile_icon));
             txtStatus.setText("เหมาะสม");
-        } else if (utils.getSodiumValue() > 1801 && utils.getSodiumValue() <= 2000) {
+        } else if (utils.getSodiumValue() >= 1801 && utils.getSodiumValue() <= 1999) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_2));
             cardStatus.setCardBackgroundColor(getResources().getColor(R.color.color_percen_2));
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.sarah_icon));
             txtStatus.setText("เสียง! เกลือจะเกินแล้ว");
-        } else if (utils.getSodiumValue() > 2000) {
+        } else if (utils.getSodiumValue() >= 2000) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_3));
             cardStatus.setCardBackgroundColor(getResources().getColor(R.color.color_percen_3));
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.icon_tai_over_256));
             txtStatus.setText("เกินแล้ว!");
         }
 

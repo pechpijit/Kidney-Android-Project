@@ -44,7 +44,8 @@ public class DrinkDiskActivity extends BaseActivity {
     TextView txtSodiumValue;
     @BindView(R.id.imgSearch)
     ImageView imgSearch;
-
+    @BindView(R.id.imgTai)
+    ImageView imgTai;
     @BindView(R.id.inputSearch)
     EditText inputSearch;
 
@@ -320,10 +321,13 @@ public class DrinkDiskActivity extends BaseActivity {
 
         if (utils.getSodiumValue() >= 0 && utils.getSodiumValue() <= 1800) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_1));
-        } else if (utils.getSodiumValue() > 1801 && utils.getSodiumValue() <= 2000) {
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.smile_icon_48));
+        } else if (utils.getSodiumValue() >= 1801 && utils.getSodiumValue() <= 1999) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_2));
-        } else if (utils.getSodiumValue() > 2000) {
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.sarah_icon_48));
+        } else if (utils.getSodiumValue() >= 2000) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_3));
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.icon_tai_over_48));
         }
 
         animation = new PieAngleAnimation(pieView);

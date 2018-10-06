@@ -11,32 +11,38 @@ import butterknife.ButterKnife;
 
 public class DetailSugarActivity extends BaseActivity {
 
-    @BindView(R.id.txtTitle)
-    TextView txtTitle;
-    @BindView(R.id.txtValue)
+    LinearLayout view11,view12,view13,view21,view22, view23;
     TextView txtValue;
-    @BindView(R.id.txtDetail)
-    TextView txtDetail;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_sugar);
-        ButterKnife.bind(this);
 
-        String status = getIntent().getExtras().getString("status");
+        view11 = findViewById(R.id.view11);
+        view12 = findViewById(R.id.view12);
+        view13 = findViewById(R.id.view13);
+        view21 = findViewById(R.id.view21);
+        view22 = findViewById(R.id.view22);
+        view23 = findViewById(R.id.view23);
+        txtValue = findViewById(R.id.txtValue);
+
+        int status = getIntent().getExtras().getInt("status");
         String value = getIntent().getExtras().getString("value");
-        int detail = getIntent().getExtras().getInt("detail");
-        int color = getIntent().getExtras().getInt("color");
 
-        txtTitle.setText(status);
-        txtTitle.setTextColor(getResources().getColor(color));
         txtValue.setText(value);
 
-        if (detail == 1) {
-            txtDetail.setText(getString(R.string.txt_recommend_sugar_1));
-        } else if (detail == 2) {
-            txtDetail.setText(getString(R.string.txt_recommend_sugar_2));
+        if (status == 11) {
+            view11.setVisibility(View.VISIBLE);
+        } else if (status == 12) {
+            view12.setVisibility(View.VISIBLE);
+        } else if (status == 13) {
+            view13.setVisibility(View.VISIBLE);
+        }else if (status == 21) {
+            view21.setVisibility(View.VISIBLE);
+        }else if (status == 22) {
+            view22.setVisibility(View.VISIBLE);
+        }else if (status == 23) {
+            view23.setVisibility(View.VISIBLE);
         }
     }
 }

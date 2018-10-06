@@ -65,7 +65,7 @@ public class ShapeCalActivity extends BaseActivity {
                     public void run() {
                         aimationOne();
                     }
-                }, 400);
+                }, 200);
 
     }
 

@@ -6,9 +6,12 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.v7.widget.AppCompatCheckBox;
+import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,6 +49,10 @@ public class SugarActivity extends BaseActivity {
     Button btnCal;
     private Realm realm;
     private BottomSheetDialog bottomSheetDialog;
+    private AppCompatRadioButton radioNotFood, radioFood;
+    private AppCompatCheckBox chDM;
+    private boolean food = false;
+    private boolean DM = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +71,36 @@ public class SugarActivity extends BaseActivity {
                     }
                 }, 400);
 
+        radioNotFood = findViewById(R.id.radioNotFood);
+        radioFood = findViewById(R.id.radioFood);
+        chDM = findViewById(R.id.chDM);
+
+        radioNotFood.setChecked(true);
+
+        radioNotFood.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    food = false;
+                }
+            }
+        });
+
+        radioFood.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    food = true;
+                }
+            }
+        });
+
+        chDM.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                DM = b;
+            }
+        });
     }
 
     private void aimationOne() {
@@ -89,7 +126,7 @@ public class SugarActivity extends BaseActivity {
 
     }
 
-    private void setBottomSheet(final String value, final String txt_sugar, String txt_detail_sugar, final int color, final int status) {
+    private void setBottomSheet(final String value, final String txt_sugar, final int color, final int status) {
         View bottomSheetView = getLayoutInflater().inflate(R.layout.bottom_sheets_sugar, null);
         bottomSheetDialog = new BottomSheetDialog(this);
         bottomSheetDialog.setContentView(bottomSheetView);
@@ -102,16 +139,14 @@ public class SugarActivity extends BaseActivity {
         TextView txtValue = bottomSheetView.findViewById(R.id.txtValue);
         Button btnOther = bottomSheetView.findViewById(R.id.btnOther);
         Button btnChart = bottomSheetView.findViewById(R.id.btnChart);
-        final TextView txtDetail = bottomSheetView.findViewById(R.id.txtDetail);
 
         txtTitle.setText(txt_sugar);
         txtValue.setText(value);
         txtTitle.setTextColor(getResources().getColor(color));
-        txtDetail.setText(txt_detail_sugar);
 
-        if (txt_sugar.equals(getString(R.string.txt_sugar_2))) {
+      /*  if (txt_sugar.equals(getString(R.string.txt_sugar_2))) {
             btnOther.setVisibility(View.INVISIBLE);
-        }
+        }*/
 
         imgClose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,10 +159,8 @@ public class SugarActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SugarActivity.this, DetailSugarActivity.class);
-                intent.putExtra("status", txt_sugar);
+                intent.putExtra("status", status);
                 intent.putExtra("value", value);
-                intent.putExtra("detail",status );
-                intent.putExtra("color", color);
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 bottomSheetDialog.hide();
@@ -158,34 +191,6 @@ public class SugarActivity extends BaseActivity {
         });
 
         bottomSheetDialog.show();
-    }
-
-    private void CalSugar() {
-
-        if (inputSugar.getText().toString().isEmpty()) {
-            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนระดับน้ำตาลในเลือดได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
-            return;
-        }
-
-        int sugar = Integer.parseInt(inputSugar.getText().toString());
-
-        String value = sugar + " mg." ;
-
-        if (sugar >= 0 && sugar <= 79) {
-            setBottomSheet(value,getString(R.string.txt_sugar_1),getString(R.string.txt_detail_sugar_1),R.color.color_txt_sugar_1,1);
-        } else if (sugar >= 80 && sugar <= 129) {
-            setBottomSheet(value,getString(R.string.txt_sugar_2),getString(R.string.txt_detail_sugar_2),R.color.color_txt_sugar_2,0);
-        } else if (sugar >= 130 && sugar <= 179) {
-            setBottomSheet(value,getString(R.string.txt_sugar_3),getString(R.string.txt_detail_sugar_3),R.color.color_txt_sugar_3,2);
-        } else if (sugar >= 180 && sugar <= 239) {
-            setBottomSheet(value, getString(R.string.txt_sugar_4), getString(R.string.txt_detail_sugar_4), R.color.color_txt_sugar_4,2);
-        } else if (sugar >= 240){
-            setBottomSheet(value, getString(R.string.txt_sugar_5), getString(R.string.txt_detail_sugar_5), R.color.color_txt_sugar_5,2);
-        }else {
-            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนระดับน้ำตาลในเลือดได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
-        }
-        insertRealm(sugar);
-        sendHistory(String.valueOf(sugar));
     }
 
     private void insertRealm(final float value) {
@@ -249,6 +254,90 @@ public class SugarActivity extends BaseActivity {
 
     @OnClick(R.id.btnCal)
     public void onViewClicked() {
-        CalSugar();
+        ToastShow(this,"food : "+food+ ",DM : "+DM);
+        checkInput();
+    }
+
+    private void checkInput() {
+        if (inputSugar.getText().toString().isEmpty()) {
+            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนระดับน้ำตาลในเลือดได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+            return;
+        }
+
+        int sugar = Integer.parseInt(inputSugar.getText().toString());
+
+        String value = sugar + " mg." ;
+
+
+        if (food) {
+            // หลังอาหาร
+            if (DM) {
+                // หลังอาหาร และ เป็นเบาหวาน
+                calFoodDM(value,sugar);
+            } else {
+                // หลังอาหาร และ ไม่เป็นเบาหวาน
+                calFoodNotDM(value,sugar);
+            }
+        }else {
+            // งดอาหาร
+            if (DM) {
+                // งดอาหาร และ เป็นเบาหวาน
+                calNotFoodDM(value,sugar);
+            } else {
+                // งดอาหาร และ ไม่เป็นเบาหวาน
+                calNotFoodNotDM(value,sugar);
+            }
+        }
+
+        insertRealm(sugar);
+        sendHistory(String.valueOf(sugar));
+    }
+
+    private void calNotFoodNotDM(String value, int sugar) {
+        if (sugar >= 0 && sugar <= 59) {
+            setBottomSheet(value,getString(R.string.txt_sugar_1),R.color.color_txt_sugar_1,11);
+        } else if (sugar >= 60 && sugar <= 99) {
+            setBottomSheet(value,getString(R.string.txt_sugar_2),R.color.color_txt_sugar_2,12);
+        } else if (sugar >= 100) {
+            setBottomSheet(value,getString(R.string.txt_sugar_3),R.color.color_txt_sugar_3,13);
+        } else {
+            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนระดับน้ำตาลในเลือดได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+        }
+    }
+
+    private void calNotFoodDM(String value, int sugar) {
+        if (sugar >= 0 && sugar <= 69) {
+            setBottomSheet(value,getString(R.string.txt_sugar_1),R.color.color_txt_sugar_1,21);
+        } else if (sugar >= 70 && sugar <= 129) {
+            setBottomSheet(value,getString(R.string.txt_sugar_2),R.color.color_txt_sugar_2,22);
+        } else if (sugar >= 130) {
+            setBottomSheet(value,getString(R.string.txt_sugar_3),R.color.color_txt_sugar_3,23);
+        } else {
+            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนระดับน้ำตาลในเลือดได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+        }
+    }
+
+    private void calFoodNotDM(String value, int sugar) {
+        if (sugar >= 0 && sugar <= 59) {
+            setBottomSheet(value,getString(R.string.txt_sugar_1),R.color.color_txt_sugar_1,11);
+        } else if (sugar >= 60 && sugar <= 139) {
+            setBottomSheet(value,getString(R.string.txt_sugar_2),R.color.color_txt_sugar_2,12);
+        } else if (sugar >= 140) {
+            setBottomSheet(value,getString(R.string.txt_sugar_3),R.color.color_txt_sugar_3,13);
+        } else {
+            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนระดับน้ำตาลในเลือดได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+        }
+    }
+
+    private void calFoodDM(String value, int sugar) {
+        if (sugar >= 0 && sugar <= 69) {
+            setBottomSheet(value,getString(R.string.txt_sugar_1),R.color.color_txt_sugar_1,21);
+        } else if (sugar >= 70 && sugar <= 179) {
+            setBottomSheet(value,getString(R.string.txt_sugar_2),R.color.color_txt_sugar_2,22);
+        } else if (sugar >= 180) {
+            setBottomSheet(value,getString(R.string.txt_sugar_3),R.color.color_txt_sugar_3,23);
+        } else {
+            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนระดับน้ำตาลในเลือดได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+        }
     }
 }

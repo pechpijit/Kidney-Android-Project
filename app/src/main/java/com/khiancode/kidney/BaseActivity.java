@@ -13,12 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.khiancode.kidney.okhttp.ApiClient;
-import com.khiancode.kidney.okhttp.CallServiceListener;
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog;
 
-import okhttp3.FormBody;
-import okhttp3.RequestBody;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 @SuppressLint("Registered")
@@ -28,7 +24,6 @@ public class BaseActivity extends AppCompatActivity {
     public static String CLIENT_SECRET = "86ZAZ5hAXyyPJMlXT4Dl1inZjFAn2uXzRyiwXUia";
     public static String BASE_URL_OAUTH = "http://3onedata.co.th/hugtai/oauth/token";
     public static String BASE_URL= "http://3onedata.co.th/hugtai/api/";
-    public static String BASE_URL_PICTURE = "http://3onedata.co.th/hugtai";
     protected String KEY_FOOD_ID = "ID";
     protected String REGIS = "กำลังสมัครสมาชิก...";
     protected String LOGIN = "กำลังเข้าสู่ระบบ...";

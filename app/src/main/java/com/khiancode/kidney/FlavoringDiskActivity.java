@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.khiancode.kidney.helper.PrefUtils;
@@ -26,7 +27,8 @@ public class FlavoringDiskActivity extends BaseActivity {
     CardView cardBtn1;
     @BindView(R.id.cardBtn2)
     CardView cardBtn2;
-
+    @BindView(R.id.imgTai)
+    ImageView imgTai;
     private PieAngleAnimation animation;
 
     @Override
@@ -64,10 +66,13 @@ public class FlavoringDiskActivity extends BaseActivity {
 
         if (utils.getSodiumValue() >= 0 && utils.getSodiumValue() <= 1800) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_1));
-        } else if (utils.getSodiumValue() > 1801 && utils.getSodiumValue() <= 2000) {
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.smile_icon_48));
+        } else if (utils.getSodiumValue() >= 1801 && utils.getSodiumValue() <= 1999) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_2));
-        } else if (utils.getSodiumValue() > 2000) {
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.sarah_icon_48));
+        } else if (utils.getSodiumValue() >= 2000) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_3));
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.icon_tai_over_48));
         }
 
         animation = new PieAngleAnimation(pieView);

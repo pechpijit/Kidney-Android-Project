@@ -18,11 +18,11 @@ public class SplashActivity extends AwesomeSplash {
         configSplash.setRevealFlagX(Flags.REVEAL_RIGHT);
         configSplash.setRevealFlagY(Flags.REVEAL_BOTTOM);
 
-        configSplash.setLogoSplash(R.drawable.rinones_logo);
+        configSplash.setLogoSplash(R.drawable.icon_app_256px);
         configSplash.setAnimLogoSplashDuration(1000);
         configSplash.setAnimLogoSplashTechnique(Techniques.Bounce);
 
-        configSplash.setTitleSplash("HUGTAI ฮักไต");
+        configSplash.setTitleSplash("ฮักไต (HUG TAI )");
         configSplash.setTitleTextColor(R.color.white);
         configSplash.setTitleTextSize(45f);
         configSplash.setAnimTitleDuration(1300);

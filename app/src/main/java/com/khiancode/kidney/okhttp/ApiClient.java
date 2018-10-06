@@ -46,6 +46,7 @@ public class ApiClient{
                     .addHeader("content-type", "multipart/form-data")
                     .cacheControl(new CacheControl.Builder().noCache().build())
                     .url(URL)
+                    .header("Connection", "close")
                     .post(requestBody)
                     .build();
 
@@ -111,6 +112,7 @@ public class ApiClient{
             Request request = new Request.Builder()
                     .cacheControl(new CacheControl.Builder().noCache().build())
                     .url(URL)
+                    .header("Connection", "close")
                     .get()
                     .build();
 
