@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".DetailLDLActivity"
+    tools:showIn="@layout/activity_detail_ldl">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="คำแนะนำเพิ่มเติม"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:text="ไขมันในเลือดสูง (มากกว่า 100 mg/dl)"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <FrameLayout
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="ไขมันในเลือดสูงควรปรับพฤติกรรม"
+                android:textStyle="bold"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="1.ควบคุมอาหารที่มีโคเลสเตอรอลสูง เช่น ไขมันสัตว์ สมองสัตว์ เครื่องในสัตว์ ไข่แดง อาหารทะเล ปลาหมึก กุ้ง หนังเป็ด หนังไก่ เครื่องดื่มที่มีรสหวาน ผลไม้รสหวานจัด "
+                android:textSize="17sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="2.หลีกเลี่ยงอาหารที่ปรุงด้วยน้ำมัน อาหารทอด เจียว ควรใช้น้ำมันจากพืชแทนน้ำมันจากสัตว์ เช่น น้ำมันถั่วเหลือง ควรเพิ่มอาหารประเภทผักใบต่าง ๆ และผลไม้บางชนิดที่ให้ใยและกาก เช่น คะน้า ฝรั่ง ส้ม เม็ดแมงลัก"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="3..รับประทานอาหารประเภทเนื้อปลา เนื้อสัตว์ที่ไม่ติดมัน นมพร่องมันเนย"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="4.หลีกเลี่ยงการดื่มสุรา เบียร์"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="5.การออกกำลังกาย ควรทำอย่างต่อเนื่อง สัปดาห์ละ 3-4 ครั้ง ครั้งละ 20-30 นาที การออกกำลังกายที่ดี เช่น การเดินเร็ว จ๊อกกิ้ง เต้นรำ ขี่จักรยาน"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="6.งดสูบบุหรี่ เป็นปัจจัยเสี่ยงต่อการเกิดโรคหัวใจขาดเลือด"
+                android:textSize="17sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="7.ปรึกษาแพทย์ ติดตามผล การปฏิบัติตัว บางระยะอาจต้องใช้ยาช่วยปรับระดับไขมันในเลือดสูง ซึ่งแพทย์จะเป็นผู้แนะนำและติดตามผลการรักษาต่อไป"
+                android:textSize="17sp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="330dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ldl_img"/>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

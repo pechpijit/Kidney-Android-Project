@@ -164,7 +164,7 @@ public class TAIActivity extends BaseActivity {
     private void CalTai() {
 
         if (inputEgfr.getText().toString().isEmpty()) {
-            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนอัตราการกรองของไตได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+            dialogTM("ไม่สามารถคำนวณได้","ไม่สามารถคำนวณอัตราการกรองของไตได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
             return;
         }
 
@@ -185,7 +185,7 @@ public class TAIActivity extends BaseActivity {
         } else if (tai >= 100){
             setBottomSheet(value, getString(R.string.txt_tai_6), getString(R.string.txt_detail_tai_6), R.color.color_txt_tai_6,6);
         }else {
-            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนอัตราการกรองของไตได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+            dialogTM("ไม่สามารถคำนวณได้","ไม่สามารถคำนวณอัตราการกรองของไตได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
         }
         insertRealm(tai);
         sendHistory(String.valueOf(tai));

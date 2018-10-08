@@ -4,52 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".LearningPage5Activity"
-    tools:showIn="@layout/activity_learning_page5"
-    android:background="@color/white">
-    <LinearLayout
+    tools:showIn="@layout/activity_learning_page5">
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/btnImg1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="925dp"
                 android:layout_weight="1"
-                android:src="@drawable/page5_1"/>
+                android:src="@drawable/page5_1" />
+
             <ImageView
                 android:id="@+id/btnImg2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="1470dp"
                 android:layout_weight="1"
-                android:src="@drawable/page5_2"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+                android:src="@drawable/page5_2" />
+
             <ImageView
                 android:id="@+id/btnImg3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="722dp"
                 android:layout_weight="1"
-                android:src="@drawable/page5_3"/>
+                android:src="@drawable/page5_3" />
+
             <ImageView
                 android:id="@+id/btnImg4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="766dp"
                 android:layout_weight="1"
-                android:src="@drawable/page5_4"/>
+                android:src="@drawable/page5_4" />
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

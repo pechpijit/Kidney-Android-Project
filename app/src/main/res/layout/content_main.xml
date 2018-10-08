@@ -74,7 +74,7 @@
                         android:paddingTop="13dp"
                         android:paddingBottom="13dp"
                         android:textSize="20sp"
-                        android:text="คำนวนรูปร่าง"
+                        android:text="ตรวจร่างกาย"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:theme="@style/MyButton"/>

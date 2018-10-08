@@ -35,6 +35,10 @@ public class ShapeCalActivity extends BaseActivity {
     Button btnTai;
     @BindView(R.id.cardBtn4)
     CardView cardBtn4;
+    @BindView(R.id.btnLDL)
+    Button btnLDL;
+    @BindView(R.id.cardBtn5)
+    CardView cardBtn5;
 
     @Override
     public void onBackPressed() {
@@ -57,6 +61,8 @@ public class ShapeCalActivity extends BaseActivity {
                 btnSugar,
                 cardBtn3,
                 btnTai,
+                cardBtn4,
+                btnLDL,
                 cardBtn4
         );
 
@@ -95,6 +101,11 @@ public class ShapeCalActivity extends BaseActivity {
                 .duration(700)
                 .playOn(cardBtn4);
 
+        cardBtn5.setVisibility(View.VISIBLE);
+        YoYo.with(Techniques.FadeInLeft)
+                .duration(700)
+                .playOn(cardBtn5);
+
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -125,9 +136,14 @@ public class ShapeCalActivity extends BaseActivity {
                 .duration(700)
                 .playOn(btnTai);
 
+        btnLDL.setVisibility(View.VISIBLE);
+        YoYo.with(Techniques.FadeInRight)
+                .duration(700)
+                .playOn(btnLDL);
+
     }
 
-    @OnClick({R.id.btnBMI, R.id.btnPres, R.id.btnSugar, R.id.btnTai})
+    @OnClick({R.id.btnBMI, R.id.btnPres, R.id.btnSugar, R.id.btnTai,R.id.btnLDL})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnBMI:
@@ -144,6 +160,10 @@ public class ShapeCalActivity extends BaseActivity {
                 break;
             case R.id.btnTai:
                 startActivity(new Intent(this,TAIActivity.class));
+                overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_right);
+                break;
+            case R.id.btnLDL:
+                startActivity(new Intent(this,LDLActivity.class));
                 overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_right);
                 break;
         }

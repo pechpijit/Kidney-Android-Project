@@ -172,7 +172,7 @@ public class PresActivity extends BaseActivity {
     private void CalPres() {
 
         if (inputOver.getText().toString().isEmpty() || inputLower.getText().toString().isEmpty()) {
-            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนระดับความดันได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+            dialogTM("ไม่สามารถคำนวณได้","ไม่สามารถคำนวณระดับความดันได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
             return;
         }
 
@@ -181,16 +181,28 @@ public class PresActivity extends BaseActivity {
 
         String value = over + "/" + lower;
 
-        if (over >= 60 && over<= 79 && lower >= 40 && lower <= 59) {
+//        if (over >= 60 && over<= 79 && lower >= 40 && lower <= 59) {
+//            setBottomSheet(value,getString(R.string.txt_pres_1),getString(R.string.txt_detail_pres_1),R.color.color_txt_pres_1,1);
+//        } else if (over >= 80 && over<= 119 && lower >= 60 && lower <= 79) {
+//            setBottomSheet(value,getString(R.string.txt_pres_2),getString(R.string.txt_detail_pres_2),R.color.color_txt_pres_2,0);
+//        } else if (over >= 120 && over<= 159 && lower >= 80 && lower <= 99) {
+//            setBottomSheet(value,getString(R.string.txt_pres_3),getString(R.string.txt_detail_pres_3),R.color.color_txt_pres_3,2);
+//        } else if (over >= 160 && over <= 210 && lower >= 100 && lower <= 120) {
+//            setBottomSheet(value, getString(R.string.txt_pres_4), getString(R.string.txt_detail_pres_4), R.color.color_txt_pres_4,2);
+//        } else {
+//            dialogTM("ไม่สามารถคำนวณได้","ไม่สามารถคำนวณระดับความดันได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+//        }
+
+        if (over >= 60 && over<= 79 ) {
             setBottomSheet(value,getString(R.string.txt_pres_1),getString(R.string.txt_detail_pres_1),R.color.color_txt_pres_1,1);
-        } else if (over >= 80 && over<= 119 && lower >= 60 && lower <= 79) {
+        } else if (over >= 80 && over<= 119) {
             setBottomSheet(value,getString(R.string.txt_pres_2),getString(R.string.txt_detail_pres_2),R.color.color_txt_pres_2,0);
-        } else if (over >= 120 && over<= 159 && lower >= 80 && lower <= 99) {
+        } else if (over >= 120 && over<= 159) {
             setBottomSheet(value,getString(R.string.txt_pres_3),getString(R.string.txt_detail_pres_3),R.color.color_txt_pres_3,2);
-        } else if (over >= 160 && over <= 210 && lower >= 100 && lower <= 120) {
+        } else if (over >= 160 && over <= 210) {
             setBottomSheet(value, getString(R.string.txt_pres_4), getString(R.string.txt_detail_pres_4), R.color.color_txt_pres_4,2);
         } else {
-            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนระดับความดันได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+            dialogTM("ไม่สามารถคำนวณได้","ไม่สามารถคำนวณระดับความดันได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
         }
         insertRealm(value,over,lower);
         sendHistory(String.valueOf(value),String.valueOf(over),String.valueOf(lower));

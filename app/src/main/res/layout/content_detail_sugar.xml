@@ -91,8 +91,9 @@
                        android:layout_height="wrap_content"
                        android:layout_marginBottom="10dp"
                        android:layout_marginTop="10dp"
+                       android:textStyle="bold"
                        android:text="@string/txt_detail_sugar_1_1_2"
-                       android:textSize="18sp" />
+                       android:textSize="20sp" />
 
                    <TextView
                        android:layout_width="match_parent"
@@ -145,8 +146,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
+                        android:textStyle="bold"
                         android:text="@string/txt_detail_sugar_1_3_3"
-                        android:textSize="18sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -224,8 +226,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
+                        android:textStyle="bold"
                         android:text="@string/txt_detail_sugar_2_1_3"
-                        android:textSize="18sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -277,8 +280,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
+                        android:textStyle="bold"
                         android:text="@string/txt_detail_sugar_2_3_2"
-                        android:textSize="18sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:layout_width="match_parent"

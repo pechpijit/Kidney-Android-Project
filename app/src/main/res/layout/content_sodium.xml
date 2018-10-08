@@ -29,6 +29,14 @@
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="(ไม่ควรเกิน 2,000 มล.)"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <FrameLayout
                 android:id="@+id/viewValue"
                 android:layout_width="match_parent"
@@ -36,18 +44,18 @@
 
                 <az.plainpie.PieView
                     android:id="@+id/pieView"
-                    android:layout_width="230dp"
-                    android:layout_height="230dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
-                    plainpie:inner_pie_padding="170"
+                    plainpie:inner_pie_padding="90"
                     plainpie:inner_text_visibility="false"
                     plainpie:percentage_size="30" />
 
                 <ImageView
                     android:id="@+id/imgTai"
                     android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:layout_marginTop="45dp"
+                    android:layout_gravity="center"
+                    android:layout_height="110dp"
                     android:src="@drawable/smile_icon" />
 
                 <ImageView
@@ -92,6 +100,20 @@
                     android:textStyle="bold" />
 
             </android.support.v7.widget.CardView>
+
+            <Button
+                android:id="@+id/btnRecomente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:text="คำแนะนำสำหรับเกลือเกิน"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:theme="@style/MyButton"/>
 
         </LinearLayout>
 

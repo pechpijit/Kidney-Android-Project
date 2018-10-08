@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".RecommentSodiumActivity"
+    tools:showIn="@layout/activity_recomment_sodium">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="เมื่อคุณกินเกลือเกิน !?"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:text="      ตอนนี้คุณกินเกลือเกินกว่าควรที่จะได้รับต่อวัน ซึ่งเป็นอันตรายต่อไตของคุณ จะทำให้ไตทำงานหนักในการกรองของเสียออกจากร่างกาย และเมื่อทำงานหนักไตก็จะเกิดความเสียหายจะพัฒนาไปเป็นโรคไตระยะต่างๆ คุณควรปรับเปลี่ยนวิถีชีวิตใหม่ !! ให้รับประทานเกลือ หรือปรุงอาหารที่มีรสเค็มให้น้อยลง "/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="วิธีการป้องกันและชะลอการเสื่อมของไต"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="✔ลดปัจจัยเสี่ยงที่ทำให้ไตเสื่อม คือ ลดหวาน มัน เค็ม"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="✔ถ้ามีความดันโลหิตสูง ต้องควบคุมให้ต่ำกว่า 130/80 มม.ปรอทโดยการใช้ยาตามที่แพทย์แนะนำ"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="✔ถ้าเป็นเบาหวานต้องควบคุมระดับน้ำตาลไม่ให้เกิน 120 มก. ต่อเดซิลิตร ระดับน้ำตาลสะสม (HbA1c) น้อยกว่าร้อยละ 7และ"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="✔ควบคุมไขมันในเลือด LDL (ไขมันไม่ดี) ไม่เกิน 100 มก. /ดล. โดยไม่รับประทานอาหารที่มีไขมันอิ่มตัวสูง เช่น เนื้อวัวเนื้อหมูติด หนังไก่ น้ำมันหมู ครีม เป็นต้น"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="✔ควบคุมน้ำหนักตัวไม่ให้อ้วนเกินไป โดยให้ค่าดัชนี มวลกาย(BMI) อยู่ระหว่าง 18.5 – 24.9"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="✔ควบคุมปริมาณโปรตีนในอาหารเพิ่มขึ้น โดยเลือกโปรตีนคุณภาพสูง เช่น เนื้อสัตว์ ไข่ขาว"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="✔หลีกเลี่ยงการใช้ยาแก้ปวด ยาสมุนไพร ยาชุด"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="✔ดื่มน้ำวันละ 8-10 แก้วต่อวันเพื่อขับเกลือและของเสียต่างๆออกจากร่างกายทางปัสสาวะ"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="✔ออกกำลังกายหรือยืดเหยียดกล้ามเนื้อวันละ 30 นาที"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="✔งดการสูบบุหรี่ ถ้าสูบบุหรี่อยู่ ต้องเลิกเด็ดขาด หลีกเลี่ยงการดื่มแอลกอฮอล์"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="✔ควรพักผ่อนให้เพียงพอ ไม่นอนดึก ทำจิตใจให้ปลอดโปร่ง ผ่อนคลาย อย่าปล่อยให้ตัวเองเครียด"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="ถ้าคุณไม่ปรับเปลี่ยนวิถีชีวิตใหม่ !!"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginTop="5dp"
+                android:text="    ในอนาคตไตของคุณเข้าสู่ระยะสุดท้ายจะไม่สามารถขับของเสียออกจากร่างกายได้ ส่งผลต่อการทำงานระบบต่างๆของร่างกายผิดปกติ ต้องได้รับการบำบัดทดแทนไตด้วยการฟอกเลือด ล้างไตผ่านช่องท้องตอลดชีวิต หรือปลูกถ่ายไต"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="17sp"
+
+                android:text="    ■ การล้างไตทางช่องท้อง (Peritoneal dialysis) คือ การขจัดของเสียออกจากร่างกาย โดยการใส่น้ำยาล้างไตเข้าไปในช่องท้อง ของเสียจะแพร่ผ่านเยื่อบุผนังช่องท้อง และถูกขับทิ้งออกไปเมื่อมีการถ่ายน้ำยาออกจากร่างกาย"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/pd_tai_1"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="17sp"
+                android:text="    ■ การฟอกเลือดด้วยเครื่องไตเทียม (Hemodialysis) คือ การนำเลือดที่มีของเสียผ่านเข้าเครื่องล้างไตเพื่อขจัดของเสีย หลังจากนั้นจึงนำเลือดดีที่ผ่านการฟอกแล้วกลับคืนสู่ร่างกาย"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/dp_tai_2"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="การปลูกถ่ายไตหรือการเปลี่ยนไต"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginTop="5dp"
+                android:text="    คือ เป็นการผ่าตัดเพื่อนำไตจากผู้บริจาคที่ยังดีอยู่ มาใส่เข้าไปแทนไตที่เสียไป และต้องรับประทานยากดภูมิตลอดชีวิต"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="ค่าใช้จ่ายของผู้ป่วยโรคไต"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_marginTop="5dp"
+                android:text="     โรคไตนับเป็นโรคที่มีค่าใช้จ่ายในการรักษาที่สูงมาก เพียงแค่การฟอกไตผ่านเครื่องไตเทียม ค่าใช้จ่ายครั้งละ 1,500-2,000 บาท ซึ่งผู้ป่วยต้องรับการฟอกไตสัปดาห์ละ 2 ครั้งต่อเนื่องไปตลอดชีวิต หรือได้รับการปลูกถ่ายไตใหม่ ทำให้มีผู้ป่วยโรคไตและครอบครัวผู้ป่วยจำนวนไม่น้อยที่ต้องกู้หนี้ยืมสิน จนถึงขั้นล้มละลาย ขณะที่ค่าใช้จ่ายการปลูกถ่ายไตใหม่นั้นอยู่ที่ 200,000 บาทต่อคน ไม่รวมถึงยากดภูมิคุ้มกันที่ต้องกินไปตลอดชีวิตเช่นกัน เป็นอุปสรรคสำคัญต่อการรักษา"/>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

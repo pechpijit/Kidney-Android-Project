@@ -60,11 +60,16 @@ public class FlavoringDiskActivity extends BaseActivity {
         if (utils.getSodiumValue() != 0) {
             txtSodiumValue.setText(df.format(utils.getSodiumValue()) + " มิลลิกรัม");
 
-            float per = (utils.getSodiumValue() / 2400) * 100;
+            float per = (utils.getSodiumValue() / 2000) * 100;
             pieView.setPercentage((int) per);
         }
 
-        if (utils.getSodiumValue() >= 0 && utils.getSodiumValue() <= 1800) {
+        if (utils.getSodiumValue() == 0){
+            txtSodiumValue.setText("0 มิลลิกรัม");
+            pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_4));
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.smile_icon_48));
+            pieView.setPercentage(100);
+        } else if (utils.getSodiumValue() >= 0 && utils.getSodiumValue() <= 1800) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_1));
             imgTai.setImageDrawable(getResources().getDrawable(R.drawable.smile_icon_48));
         } else if (utils.getSodiumValue() >= 1801 && utils.getSodiumValue() <= 1999) {
@@ -74,7 +79,7 @@ public class FlavoringDiskActivity extends BaseActivity {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_3));
             imgTai.setImageDrawable(getResources().getDrawable(R.drawable.icon_tai_over_48));
         }
-
+        pieView.setInnerBackgroundColor(getResources().getColor(R.color.white));
         animation = new PieAngleAnimation(pieView);
         animation.setDuration(1000);
         pieView.startAnimation(animation);

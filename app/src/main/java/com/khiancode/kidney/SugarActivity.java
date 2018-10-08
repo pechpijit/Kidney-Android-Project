@@ -254,13 +254,13 @@ public class SugarActivity extends BaseActivity {
 
     @OnClick(R.id.btnCal)
     public void onViewClicked() {
-        ToastShow(this,"food : "+food+ ",DM : "+DM);
+//        ToastShow(this,"food : "+food+ ",DM : "+DM);
         checkInput();
     }
 
     private void checkInput() {
         if (inputSugar.getText().toString().isEmpty()) {
-            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนระดับน้ำตาลในเลือดได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+            dialogTM("ไม่สามารถคำนวณได้","ไม่สามารถคำนวณระดับน้ำตาลในเลือดได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
             return;
         }
 
@@ -301,7 +301,7 @@ public class SugarActivity extends BaseActivity {
         } else if (sugar >= 100) {
             setBottomSheet(value,getString(R.string.txt_sugar_3),R.color.color_txt_sugar_3,13);
         } else {
-            dialogTM("ไม่สามารถคำนวนได้","ไม่สามารถคำนวนระดับน้ำตาลในเลือดได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
+            dialogTM("ไม่สามารถคำนวณได้","ไม่สามารถคำนวณระดับน้ำตาลในเลือดได้แน่ชัด โปรดปรึกษาแพทย์ผู้เชี่ยวชาญ");
         }
     }
 

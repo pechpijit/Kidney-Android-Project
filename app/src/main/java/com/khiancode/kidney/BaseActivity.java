@@ -24,7 +24,6 @@ public class BaseActivity extends AppCompatActivity {
     public static String CLIENT_SECRET = "86ZAZ5hAXyyPJMlXT4Dl1inZjFAn2uXzRyiwXUia";
     public static String BASE_URL_OAUTH = "http://3onedata.co.th/hugtai/oauth/token";
     public static String BASE_URL= "http://3onedata.co.th/hugtai/api/";
-    protected String KEY_FOOD_ID = "ID";
     protected String REGIS = "กำลังสมัครสมาชิก...";
     protected String LOGIN = "กำลังเข้าสู่ระบบ...";
     private static Toast mToast;

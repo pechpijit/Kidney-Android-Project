@@ -42,6 +42,8 @@ public class SodiumActivity extends BaseActivity {
     Button btnCat2;
     @BindView(R.id.btnCat3)
     Button btnCat3;
+    @BindView(R.id.btnRecomente)
+    Button btnRecomente;
     @BindView(R.id.cardBtn)
     CardView cardBtn;
     @BindView(R.id.viewBtn1)
@@ -89,6 +91,7 @@ public class SodiumActivity extends BaseActivity {
         btnRef.setVisibility(View.INVISIBLE);
         cardStatus.setVisibility(View.INVISIBLE);
         txtStatus.setVisibility(View.INVISIBLE);
+        btnRecomente.setVisibility(View.INVISIBLE);
 
         new Handler().postDelayed(
                 new Runnable() {
@@ -98,7 +101,6 @@ public class SodiumActivity extends BaseActivity {
                 }, 400);
 
         pieView.setMainBackgroundColor(getResources().getColor(R.color.white20));
-        pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_1));
         pieView.setMaxPercentage(100);
         animation = new PieAngleAnimation(pieView);
         animation.setDuration(1000);
@@ -149,10 +151,10 @@ public class SodiumActivity extends BaseActivity {
                 .duration(700)
                 .playOn(viewBtn1);
 
-//        btnRef.setVisibility(View.VISIBLE);
-//        YoYo.with(Techniques.ZoomInLeft)
-//                .duration(700)
-//                .playOn(btnRef);
+        btnRef.setVisibility(View.VISIBLE);
+        YoYo.with(Techniques.ZoomInLeft)
+                .duration(700)
+                .playOn(btnRef);
 
         txtStatus.setVisibility(View.VISIBLE);
         YoYo.with(Techniques.ZoomIn)
@@ -160,7 +162,7 @@ public class SodiumActivity extends BaseActivity {
                 .playOn(txtStatus);
     }
 
-    @OnClick({R.id.btnCat1, R.id.btnCat2, R.id.btnCat3, R.id.btnRef})
+    @OnClick({R.id.btnCat1, R.id.btnCat2, R.id.btnCat3, R.id.btnRef, R.id.btnRecomente})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btnCat1:
@@ -176,20 +178,16 @@ public class SodiumActivity extends BaseActivity {
                 overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
                 break;
             case R.id.btnRef:
-                DecimalFormat df = new DecimalFormat("0");
                 PrefUtils utils = new PrefUtils(this);
                 utils.setSodiumValue(0);
-                txtSodiumValue.setText(df.format(utils.getSodiumValue()) + " มิลลิกรัม");
-                pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_1));
-                pieView.setPercentage(0);
+                updateView();
                 ToastShow(this, "รีเซ็ตปริมาณโซเดียม");
                 break;
+            case R.id.btnRecomente:
+                startActivityForResult(new Intent(this, RecommentSodiumActivity.class), 1150);
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
+                break;
         }
-    }
-
-    private void intentListFood(int id) {
-        startActivityForResult(new Intent(this, ListFoodActivity.class).putExtra(KEY_FOOD_ID, id), 1150);
-        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
     }
 
     @Override
@@ -210,23 +208,32 @@ public class SodiumActivity extends BaseActivity {
             pieView.setPercentage((int) per);
         }
 
-        if (utils.getSodiumValue() >= 0 && utils.getSodiumValue() <= 1800) {
+        if (utils.getSodiumValue() == 0) {
+            txtSodiumValue.setText("0 มิลลิกรัม");
+            pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_4));
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.smile_icon));
+            pieView.setPercentage(100);
+            btnRecomente.setVisibility(View.INVISIBLE);
+        } else if (utils.getSodiumValue() >= 0 && utils.getSodiumValue() <= 1800) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_1));
             cardStatus.setCardBackgroundColor(getResources().getColor(R.color.color_percen_1));
             imgTai.setImageDrawable(getResources().getDrawable(R.drawable.smile_icon));
             txtStatus.setText("เหมาะสม");
+            btnRecomente.setVisibility(View.INVISIBLE);
         } else if (utils.getSodiumValue() >= 1801 && utils.getSodiumValue() <= 1999) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_2));
             cardStatus.setCardBackgroundColor(getResources().getColor(R.color.color_percen_2));
             imgTai.setImageDrawable(getResources().getDrawable(R.drawable.sarah_icon));
-            txtStatus.setText("เสียง! เกลือจะเกินแล้ว");
+            txtStatus.setText("เสี่ยง! เกลือจะเกินแล้ว");
+            btnRecomente.setVisibility(View.INVISIBLE);
         } else if (utils.getSodiumValue() >= 2000) {
             pieView.setPercentageBackgroundColor(getResources().getColor(R.color.color_percen_3));
             cardStatus.setCardBackgroundColor(getResources().getColor(R.color.color_percen_3));
-            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.icon_tai_over_256));
-            txtStatus.setText("เกินแล้ว!");
+            imgTai.setImageDrawable(getResources().getDrawable(R.drawable.icon_tai_over_200));
+            txtStatus.setText("เกลือเกินแล้ว!");
+            btnRecomente.setVisibility(View.VISIBLE);
         }
-
+        pieView.setInnerBackgroundColor(getResources().getColor(R.color.white));
         animation = new PieAngleAnimation(pieView);
         animation.setDuration(1000);
         pieView.startAnimation(animation);

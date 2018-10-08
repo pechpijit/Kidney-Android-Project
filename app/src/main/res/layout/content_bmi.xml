@@ -173,7 +173,7 @@
             android:layout_marginTop="10dp"
             android:padding="13dp"
             android:textSize="24sp"
-            android:text="คำนวนดัชนีมวลกาย"
+            android:text="คำนวณดัชนีมวลกาย"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:theme="@style/MyButton"/>

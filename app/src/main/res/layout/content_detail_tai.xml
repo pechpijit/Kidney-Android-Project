@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="ค่าความดัน"
+                    android:text="อัตราการกรองของไต"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="00.00"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -84,34 +84,58 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/txt_recommend_tai_1"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="1.ลดปัจจัยเสี่ยงที่ทำให้ไตเสื่อม ควบคุมความดันโลหิตไม่ให้เกิน 130/80 มม.ปรอท "
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="- งดสูบบุหรี่"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="2.ควบคุมระดับน้ำตาล และควบคุมไขมันในเลือด LD L (ไขมันไม่ดี)  โดยไม่รับประทานอาหารที่มีไขมันอิ่มตัวสูง เช่น เนื้อวัวเนื้อหมูติด หนังไก่ น้ำมันหมู ครีม เป็นต้น	"
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="- ควบคุมน้ำหนักตัว และออกกำลังกาย"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="3.ไม่กินอาหารรสเค็ม และควรรักษาน้ำหนักตัวไม่ให้อ้วนเกินไป "
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="- รับประทานโปรตีน หรือเนื้อสัตว์ในสัดส่วนที่พอเหมาะ เลี่ยงอาหารเค็ม และ"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="4.ดื่มน้ำวันละ 	8 - 10 แก้วต่อวันเพื่อขับเกลือและของเสียต่างๆ ออกจากร่างกายทางปัสสาวะ"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="5.หลีกเลี่ยงการใช้ยาหรือสมุนไพร นอกเหนือที่แพทย์สั่ง เพราะอาจเป็นพิษต่อไต"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="6.งดการสูบบุหรี่ และงดดื่มแอลกอฮอลล์"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="7.ออกกำลังกายหรือยืดเหยียดกล้ามเนื้อวันละ 30 นาที"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="8.ควรพักผ่อนให้เพียงพอ ไม่นอนดึก ทำจิตใจให้ปลอดโปร่ง ผ่อนคลาย อย่าปล่อยให้ตัวเองเครียด"
+                        android:textSize="17sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -126,18 +150,72 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/txt_recommend_tai_2"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="1.ลดปัจจัยเสี่ยงที่ทำให้ไตเสื่อม ได้แก่ จำกัดเกลือ ซอสปรุงรส ในอาหาร และควรหลีกเลี่ยง อาหารสำเร็จรูป อาหารหมักดอง ไข่เค็ม ปลาเค็ม เป็นต้น"
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="• ปริมาณโซเดียมที่ควรบริโภคใน 1 วัน = 2,000 มิลลิกรัม"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="2.ควบคุมความดันโลหิตไม่ให้เกิน 130/80 มม.ปรอท "
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="3.ควบคุมระดับน้ำตาลไม่ให้เกิน 120 มก. ต่อเดซิลิตร หลีกเลี่ยงอาหารที่มีรสหวานและผลไม้ที่มีน้ำตาลสูง"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="4.ไม่รับประทานอาหารที่มีไขมันอิ่มตัวสูง เช่น เนื้อวัวเนื้อหมูติด หนังไก่ น้ำมันหมู ครีม เป็นต้น"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="5.ควรรักษาน้ำหนักตัวไม่ให้อ้วนเกินไป โดยให้ค่าดัชนี มวลกาย (BMI) อยู่ระหว่าง 18.5 – 24.9"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="6.ดื่มน้ำวันละ 8-10 แก้วต่อวันเพื่อขับเกลือและของเสียต่างๆออกจากร่างกายทางปัสสาวะ"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="7.หลีกเลี่ยงการใช้ยาหรือสมุนไพร นอกเหนือที่แพทย์สั่ง เพราะอาจเป็นพิษต่อไต"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="8.ออกกำลังกายหรือยืดเหยียดกล้ามเนื้อวันละ 30 นาที"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="9.งดการสูบบุหรี่ และงดดื่มแอลกอฮอลล์"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="10.ควรพักผ่อนให้เพียงพอ ไม่นอนดึก ทำจิตใจให้ปลอดโปร่ง ผ่อนคลาย อย่าปล่อยให้ตัวเองเครียด"
+                        android:textSize="17sp" />
 
                 </LinearLayout>
 
@@ -153,34 +231,72 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="- จำกัดการรับประทานสารอาหารโปรตีน"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="1.ลดปัจจัยเสี่ยงที่ทำให้ไตเสื่อม ลดหวาน มัน เค็ม ได้แก่ จำกัดเกลือ ซอสปรุงรส ในอาหาร และ อาหารสำเร็จรูป อาหารหมักดอง ไข่เค็ม ปลาเค็ม "
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/txt_recommend_tai_3"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="2.ควบคุมความดันโลหิตไม่ให้เกิน 130/80 มม.ปรอท "
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="- เมื่อมีระดับฟอสฟอรัสในเลือดสูง และการ บริโภคโปรตีนควรบริโภคตามที่แพทย์กำหนด"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="3.ควบคุมระดับน้ำตาล หลีกเลี่ยงอาหารที่มีรสหวานและผลไม้ที่มีน้ำตาลสูง"
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="- ควรเลือกรับประทานเนื้อสัตว์ที่มีไขมันต่ำโคเลสเตอรอลต่ำ และไม่ผ่านการแปรรูป"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="4.รับประทานอาหารที่มีไขมันอิ่มตัวสูง เช่น เนื้อวัวเนื้อหมูติด หนังไก่ น้ำมันหมู ครีม เป็นต้น	"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="5.ควบคุมน้ำหนักตัวไม่ให้อ้วนเกินไป "
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="6.ดื่มน้ำวันละ 	8-10 แก้วต่อวันเพื่อขับเกลือและของเสียต่างๆออกจากร่างกายทางปัสสาวะ หากน้ำหนักเพิ่มขึ้นเรื่อยๆและตัวบวม ควรลดน้ำดื่มให้ใกล้เคียงกับปริมาณปัสสาวะ และกินอาหารจืดสนิท"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="7.หลีกเลี่ยงการใช้ยาหรือสมุนไพร นอกเหนือที่แพทย์สั่ง เพราะอาจเป็นพิษต่อไต"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="8.ออกกำลังกายหรือยืดเหยียดกล้ามเนื้อวันละ 30 นาที ปรึกษาแพทย์เกี่ยวกับแผนการออกกำลังกาย "
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="9.งดการสูบบุหรี่ และงดดื่มแอลกอฮอลล์"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="10.ควรพักผ่อนให้เพียงพอ ไม่นอนดึก ทำจิตใจให้ปลอดโปร่ง ผ่อนคลาย อย่าปล่อยให้ตัวเองเครียด"
+                        android:textSize="17sp" />
 
                 </LinearLayout>
 
@@ -196,27 +312,79 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/txt_recommend_tai_4"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="1.งดอาหารที่มีโซเดียมมาก เช่น อาหารแปรรูป อาหารหมักดอง บะหมี่กึ่งสำเร็จรูป ต้องมีการจำกัดโซเดียมให้น้อยกว่า 2,000 มิลลิกรัม"
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="- เกลือโปแตสเซียมมีมากในผัก และผลไม้บางชนิดจึงควร ลดบริโภคผักสีเข้ม ๆ เช่น คะน้าผักกวางตุ้ง แครอท ฟักทอง มะเขือเทศ "
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="2.จำกัดโปรตีน โดยเลือกโปรตีนคุณภาพสูง เช่น เนื้อสัตว์ ไข่ขาว โดยเฉพาะเนื้อปลา"
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="- ผลไม้ที่ควรงดบริโภค เช่น กล้วย ทุเรียน ฝรั่ง ขนุน มะละกอ ลูกเกด ลูกพรุน ผลไม้แห้ง "
-                        android:textSize="18sp" />
+                        android:layout_marginTop="5dp"
+                        android:text="3.ควบคุมคอเลสเตอรอล เช่น ไข่แดง เครื่องในสัตว์ กะทิ น้ำมันปาล์ม มันหมู มันไก่                                  "
+                        android:textSize="17sp" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="4.หลีกเลี่ยงหรืองดอาหารที่มีโพแทสเซียมสูง อาจเกิดอาการกล้ามเนื้ออ่อนแรงและมีผลทำให้หัวใจเต้นผิดปกติและหัวใจหยุดเต้นได้"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="5.หลีกเลี่ยงอาหารที่มีฟอสฟอรัส เช่น ไข่แดง นมทุกรูปแบบ โยเกิร์ต ปลาซิว โดนัท เค้ก น้ำอัดลม เมล็ดแตงโม เมล็ดทานตะวัน"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="6.จำกัดน้ำ หากมีอาการบวมน้ำ ความดันโลหิตสูง ให้ดื่มน้ำไม่เกินวันละ 700 -1,000 มิลลิลิตร หรือ 3-4 แก้วต่อวัน หรือตามที่แพทย์กำหนด"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="7.รักษาความดันโลหิตให้อยู่ในระดับที่ดี คือไม่เกิน 130/80 มิลลิเมตรปรอท และผู้ที่เป็นเบาหวานควรควบคุมระดับน้ำตาลให้อยู่ในระดับที่ดี "
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="8.งดการสูบบุหรี่ และงดดื่มแอลกอฮอลล์"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="9.ออกกำลังกายหรือยืดเหยียดกล้ามเนื้อวันละ 30 นาที ปรึกษาแพทย์เกี่ยวกับแผนการออกกำลังกาย"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="10.ควรพักผ่อนให้เพียงพอ ไม่นอนดึก ทำจิตใจให้ปลอดโปร่ง ผ่อนคลาย อย่าปล่อยให้ตัวเองเครียด"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="11.เตรียมตัวเรียนรู้เรื่องการฟอกไตหรือล้างไตผ่านหน้าท้อง หากไม่สามารถชะลอความเสื่อมของไตได้ ทำให้ไตมีการเสื่อมมากขึ้น  (เมื่อการกรองของไต (eGFR)  น้อยกว่า 15%)"
+                        android:textSize="17sp" />
                 </LinearLayout>
 
             </FrameLayout>
